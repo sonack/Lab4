@@ -2,6 +2,7 @@ package exp1;
 
 import java.util.ArrayList;
 
+//deal with expression
 public class expression {
 	private ArrayList<singleTerm> polynomial = new ArrayList<>();
 	
