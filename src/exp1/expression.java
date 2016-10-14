@@ -44,3 +44,4 @@ public class expression {
 			polynomial.get(i).derivative(varName);
 	}
 }
+//2.7
