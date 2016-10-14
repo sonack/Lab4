@@ -1,7 +1,7 @@
 package exp1;
 
 import java.util.ArrayList;
-
+//2.5
 //deal with expression
 public class expression {
 	private ArrayList<singleTerm> polynomial = new ArrayList<>();

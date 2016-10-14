@@ -1,7 +1,7 @@
 package exp1;
 
 import java.util.HashMap;
-
+//2.5
 public class singleTerm {
     private int parameter;
     private HashMap<Character, Integer> var = new HashMap<>();
