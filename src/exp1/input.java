@@ -2,6 +2,7 @@ package exp1;
 
 import java.util.Scanner;
 //2.5
+//2.3
 public class input {
     String text;
 
