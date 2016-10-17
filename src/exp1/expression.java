@@ -16,8 +16,7 @@ public class expression {
 	public String toString()
 	{
 		String s = "";
-		for(int i = 0; i < polynomial.size(); i++)
-		{
+		for(int i = 0; i < polynomial.size(); i++){
 			if(!polynomial.get(i).toString().startsWith("0"))
 			{
 				s += polynomial.get(i).toString();

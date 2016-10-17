@@ -56,16 +56,14 @@ public class singleTerm {
 	
 	public void derivative(char varName)
 	{
-		if(var.containsKey(varName))
-		{
+		if(var.containsKey(varName)){
 			int power = var.get(varName);
 			parameter *= power;
 			var.put(varName, power - 1);
 			if(var.get(varName) == 0)
 				var.remove(varName);
 		}
-		else
-		{
+		else{
 			parameter = 0;
 		}
 	}

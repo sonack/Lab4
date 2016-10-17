@@ -24,14 +24,12 @@ public class input {
 			char c = text.charAt(i);
 			if(c >= 48 && c <= 57)
 				lastIsOperator = false;
-			else if (c == '+' || c == '*' || c == '^') 
-			{
+			else if (c == '+' || c == '*' || c == '^') {
 				if(lastIsOperator || i==0)
 					return false;
 				lastIsOperator = true;
 			}
-			else if(c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z')
-			{
+			else if(c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z'){
 				if(lastIsOperator || i==0)
 					lastIsOperator = false;
 				else
