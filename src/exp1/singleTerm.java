@@ -26,23 +26,23 @@ public class singleTerm {
 	@Override
 	public String toString()
 	{
-		StringBuffer s = new StringBuffer();
-		s.append(Integer.toString(parameter));
+		String s = "";
+		s += Integer.toString(parameter);
 		for(Character c : var.keySet())
 		{
-			s.append("*");
+			s += "*";
 			if(var.get(c) == 1)
-				s.append(Character.toString(c));
+				s += Character.toString(c);
 			else
 			{
-				s.append(Character.toString(c));
-				s.append("^");
-				s.append(Integer.toString(var.get(c)));
+				s += Character.toString(c);
+				s += "^";
+				s += Integer.toString(var.get(c));
 			}
 		}
 		if(s.toString().startsWith("1*"))
 			return s.substring(2);
-		return s.toString();
+		return s;
 	}
 	
 	public void simplify(char varName, int value)

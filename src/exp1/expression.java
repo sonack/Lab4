@@ -15,19 +15,18 @@ public class expression {
 	@Override
 	public String toString()
 	{
-		StringBuffer s = new StringBuffer();
+		String s = "";
 		for(int i = 0; i < polynomial.size(); i++)
 		{
 			if(!polynomial.get(i).toString().startsWith("0"))
 			{
-				s.append(polynomial.get(i).toString());
-				s.append("+");
+				s += polynomial.get(i).toString();
+				s += "+";
 			}	
 		}
 		if(s.length() == 0)
 			return "0";
-		s.deleteCharAt(s.length() - 1);
-		return s.toString();
+		return s.substring(0, s.length()-1);
 	}
 	
 	public void simplify(char varName, int value)
