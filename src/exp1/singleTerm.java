@@ -2,71 +2,73 @@ package exp1;
 
 import java.util.HashMap;
 
-public class singleTerm {
-	private int parameter;
-	private HashMap<Character, Integer> var = new HashMap<>();
-	
-	public singleTerm(String product) {
-		parameter = 1;
-		String multiplier[] = product.split("\\*");
-		for(int i = 0; i < multiplier.length; i++)
-		{
-			if(multiplier[i].charAt(0) >= 48 && multiplier[i].charAt(0) <= 57) 	 //Èç¹û³ËÊıÎªÊı×Ö
-				parameter *= Integer.parseInt(multiplier[i]);
-			else
-			{
-				String s[] = multiplier[i].split("\\^");                         //Èç¹û³ËÊıÎªµ¥×ÖÄ¸      
-				char varName = s[0].charAt(0);   									//±äÁ¿Ãû
-				int power = s.length > 1 ? Integer.parseInt(s[1]) : 1;				//´ÎÊı
-				var.put(varName, var.containsKey(varName) ? power + var.get(varName) : power);	
-			}		
-		}
-	}
-	
-	@Override
-	public String toString()
+public class singleTerm
+{
+    private int parameter;
+    private HashMap<Character, Integer> var = new HashMap<>();
+
+    public singleTerm(String product)
+    {
+	parameter = 1;
+	String multiplier[] = product.split("\\*");
+	for (int i = 0; i < multiplier.length; i++)
 	{
-		String s = "";
-		s += Integer.toString(parameter);
-		for(Character c : var.keySet())
-		{
-			s += "*";
-			if(var.get(c) == 1)
-				s += Character.toString(c);
-			else
-			{
-				s += Character.toString(c);
-				s += "^";
-				s += Integer.toString(var.get(c));
-			}
-		}
-		if(s.toString().startsWith("1*"))
-			return s.substring(2);
-		return s;
+	    if (multiplier[i].charAt(0) >= 48 && multiplier[i].charAt(0) <= 57) // åˆ¤æ–­æ˜¯ä¸æ˜¯å•ä¸ªæ•°å­—
+		parameter *= Integer.parseInt(multiplier[i]);
+	    else
+	    {
+		String s[] = multiplier[i].split("\\^"); // å¤„ç†æŒ‡æ•°
+		char varName = s[0].charAt(0); // è·å–å˜é‡å
+		int power = s.length > 1 ? Integer.parseInt(s[1]) : 1; // é»˜è®¤æŒ‡æ•°æ˜¯1ï¼Œå¦åˆ™æ˜¯æŒ‡å®šæŒ‡æ•°
+		var.put(varName, var.containsKey(varName) ? power + var.get(varName) : power);
+	    }
 	}
-	
-	public void simplify(char varName, int value)
+    }
+
+    @Override
+    public String toString()
+    {
+	String s = "";
+	s += Integer.toString(parameter);
+	for (Character c : var.keySet())
 	{
-		if(var.containsKey(varName))
-		{
-			parameter *= Math.pow(value, var.get(varName));
-			var.remove(varName);
-		}
+	    s += "*";
+	    if (var.get(c) == 1)
+		s += Character.toString(c);
+	    else
+	    {
+		s += Character.toString(c);
+		s += "^";
+		s += Integer.toString(var.get(c));
+	    }
 	}
-	
-	public void derivative(char varName)
+	if (s.toString().startsWith("1*"))
+	    return s.substring(2);
+	return s;
+    }
+
+    public void simplify(char varName, int value)
+    {
+	if (var.containsKey(varName))
 	{
-		if(var.containsKey(varName))
-		{
-			int power = var.get(varName);
-			parameter *= power;
-			var.put(varName, power - 1);
-			if(var.get(varName) == 0)
-				var.remove(varName);
-		}
-		else
-		{
-			parameter = 0;
-		}
+	    parameter *= Math.pow(value, var.get(varName));
+	    var.remove(varName);
 	}
+    }
+
+    public void derivative(char varName)
+    {
+	if (var.containsKey(varName))
+	{
+	    int power = var.get(varName);
+	    parameter *= power;
+	    var.put(varName, power - 1);
+	    if (var.get(varName) == 0)
+		var.remove(varName);
+	}
+	else
+	{
+	    parameter = 0;
+	}
+    }
 }
