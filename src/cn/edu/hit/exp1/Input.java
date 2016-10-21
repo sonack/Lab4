@@ -106,9 +106,9 @@ public final void simplify(final Expression p) {
         /**
          * @param p
          */
-    String[] assignment = text.split(" ");
-    for (int i = 1; i < assignment.length; i++) {
-        String[] s = assignment[i].split("=");
+    String[] assign = text.split(" ");
+    for (int i = 1; i < assign.length; i++) {
+        String[] s = assign[i].split("=");
         p.simplify(s[0].charAt(0), Integer.parseInt(s[1]));
     }
     System.out.println(p);

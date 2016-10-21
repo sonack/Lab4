@@ -53,8 +53,8 @@ public final void simplify(final char varName, final int value) {
  * @param varName varName
  */
 public final void derivative(final char varName) {
-    for (int i = 0; i < polynomial.size(); i++) {
-        polynomial.get(i).derivative(varName);
+    for (int j = 0; j < polynomial.size(); j++) {
+        polynomial.get(j).derivative(varName);
     }
     }
 }
